@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Stateful Kitap Uygulaması</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>📚 Stateful Kitap Uygulaması</h1>
+
+    <form method="post" class="search">
+        <input type="text" name="query" placeholder="Kitap ara..." required>
+        <button name="search">Ara</button>
+    </form>
+
+    <div class="books">
+        {% for book in books %}
+        <div class="card">
+            <h3>{{ book.title }}</h3>
+            <p>{{ book.author_name[0] if book.author_name }}</p>
+
+            <form method="post">
+                <input type="hidden" name="title" value="{{ book.title }}">
+                <button 
+                    name="like"
+                    class="heart {% if book.title in liked_books %}liked{% endif %}">
+                    ❤️
+                </button>
+            </form>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="list">
+        <h2>❤️ Beğenilen Kitaplar (Session)</h2>
+        {% if liked_books %}
+            <ul>
+                {% for b in liked_books %}
+                    <li>{{ b }}</li>
+                {% endfor %}
+            </ul>
+            <a href="/clear">Listeyi Temizle</a>
+        {% else %}
+            <p>Henüz beğenilen kitap yok</p>
+        {% endif %}
+    </div>
+</div>
+
+</body>
+</html>
