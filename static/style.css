@@ -1,0 +1,57 @@
+body {
+    background: linear-gradient(120deg, #f093fb, #f5576c);
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+}
+
+.search {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.search input {
+    padding: 10px;
+    width: 250px;
+}
+
+.books {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+}
+
+.card {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.heart {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: gray;
+}
+
+.heart.liked {
+    color: red;
+}
+
+.list {
+    margin-top: 30px;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+}
